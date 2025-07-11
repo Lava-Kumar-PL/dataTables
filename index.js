@@ -10,14 +10,12 @@ app.get('/helloworld', (req, res) => {
   res.send('hello world');
 })
 app.get("/api/data", (req, res) => {
-  console.log(req.body);
 
   res.json(dataTable[0]);
 });
 
 app.post("/api/data", (req, res) => {
 
-  console.log(req.body)
   const draw = parseInt(req.body.draw)
   const start = parseInt(req.body.start)
   const length = parseInt(req.body.length)
