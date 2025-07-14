@@ -98,7 +98,7 @@ app.post("/api/data2", (req, res) => {
     });
   }
   else {
-    filetredData = dataTable
+    filetredData = results
   }
 
 
