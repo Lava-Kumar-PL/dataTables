@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 const dataTable = require("./dataTable.json");
-const results = require("./Resu;ts.json");
+const results = require("./Results.json");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,7 +40,7 @@ app.post("/api/data", (req, res) => {
 
 
 
-  if (order && filetredData.length>0) {
+  if (order && filetredData.length > 0) {
     let sortByField = Object.keys(filetredData[0])[order[0].column]
     if (sortByField) {
       filetredData.sort((a, b) => {
@@ -103,7 +103,7 @@ app.post("/api/data2", (req, res) => {
 
 
 
-  if (order && filetredData.length>0) {
+  if (order && filetredData.length > 0) {
     let sortByField = Object.keys(filetredData[0])[order[0].column]
     if (sortByField) {
       filetredData.sort((a, b) => {
