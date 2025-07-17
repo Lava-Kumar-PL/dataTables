@@ -84,17 +84,19 @@ app.post("/api/data2", (req, res) => {
   let filetredData;
   if (searchValue !== '') {
     filetredData = results.filter(data => {
-      return data.LoginID.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.FirstName.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.LastName.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.StartDate.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.Organization.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.Location.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.Title.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.Email.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.IsActive.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.Phone.toLowerCase().includes(searchValue.toLowerCase()) ||
-        data.EmployeeID === searchValue
+      return (
+        (data.LoginID && data.LoginID.toLowerCase().includes(searchValue)) ||
+        (data.FirstName && data.FirstName.toLowerCase().includes(searchValue)) ||
+        (data.LastName && data.LastName.toLowerCase().includes(searchValue)) ||
+        (data.StartDate && data.StartDate.toLowerCase().includes(searchValue)) ||
+        (data.Organization && data.Organization.toLowerCase().includes(searchValue)) ||
+        (data.Location && data.Location.toLowerCase().includes(searchValue)) ||
+        (data.Title && data.Title.toLowerCase().includes(searchValue)) ||
+        (data.Email && data.Email.toLowerCase().includes(searchValue)) ||
+        (data.IsActive && data.IsActive.toLowerCase().includes(searchValue)) ||
+        (data.Phone && data.Phone.toLowerCase().includes(searchValue)) ||
+        (data.EmployeeID && data.EmployeeID === searchValue)
+      );  
     });
   }
   else {
