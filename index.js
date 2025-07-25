@@ -81,6 +81,7 @@ app.post("/api/data2", (req, res) => {
   const order = req.body.order;
 
 
+
   let filetredData;
   if (searchValue !== '') {
     filetredData = results.filter(data => {
@@ -95,14 +96,13 @@ app.post("/api/data2", (req, res) => {
         (data.Email && data.Email.toLowerCase().includes(searchValue)) ||
         (data.IsActive && data.IsActive.toLowerCase().includes(searchValue)) ||
         (data.Phone && data.Phone.toLowerCase().includes(searchValue)) ||
-        (data.EmployeeID && data.EmployeeID === searchValue)
-      );  
+        (data.EmployeeID && data.EmployeeID.toString().includes(searchValue))
+      );
     });
   }
   else {
     filetredData = results
   }
-
 
 
   if (order && filetredData.length > 0) {
